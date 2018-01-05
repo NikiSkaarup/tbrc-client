@@ -6,6 +6,8 @@ load('api_arduino_onewire.js');
 load('api_arduino_dallas_temp.js');
 load('api_timer.js');
 load('api_http.js');
+load('api_arduino_onewire.js');
+load('api_arduino_dallas_temp.js');
 
 let led = Cfg.get('pins.led');
 GPIO.set_mode(led, GPIO.MODE_OUTPUT);
