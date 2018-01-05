@@ -37,7 +37,7 @@ let getInfo = function () {
 function query(data) {
   print(JSON.stringify(data));
   HTTP.query({
-    url: url,
+    url: url + 'api/log/',
     headers: { 'Content-type': 'application/json' },
     data: data,
     success: function (body, full_http_msg) { print(body); },
@@ -47,14 +47,13 @@ function query(data) {
 
 function queryForDeviceSetup() {
   HTTP.query({
-    url: url + device_identifier,
-    headers: { 'Content-type': 'application/json' },
-    success: function (body, full_http_msg) { 
+    url: url + 'api/setup/' + device_identifier,
+    success: function (body, full_http_msg) {
       let parsed = JSON.parse(body);
-      if(parsed.data.target_temp) {
+      if (parsed.data.target_temp) {
         target_temp = parsed.data.target_temp;
       }
-      if(parsed.data.target_temp_tolerance) {
+      if (parsed.data.target_temp_tolerance) {
         target_temp_tolerance = parsed.data.target_temp_tolerance;
       }
     },
